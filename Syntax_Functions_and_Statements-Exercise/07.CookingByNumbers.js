@@ -1,7 +1,7 @@
 function cookingByNumbers(...params) {
   let number = Number(params[0]);
 
-  const comandsDictionary = {
+  const commandsDictionary = {
     chop: (x) => x / 2,
     dice: (x) => Math.sqrt(x),
     spice: (x) => x + 1,
@@ -11,7 +11,7 @@ function cookingByNumbers(...params) {
 
   for (let i = 1; i < params.length; i++) {
     const cmd = params[i];
-    number = comandsDictionary[cmd](number);
+    number = commandsDictionary[cmd](number);
     console.log(number);
   }
 }
