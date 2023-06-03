@@ -13,12 +13,12 @@ function solve(obj) {
     throw new Error("Invalid request header: Invalid URI");
   }
 
-  if (!obj.hasOwnProperty("version") || !versions.includes(obj.versions)) {
+  if (!obj.hasOwnProperty("version") || !versions.includes(obj.version)) {
     throw new Error("Invalid request header: Invalid Version");
   }
 
   if (
-    !obj.hasOwnProperty("uri") ||
+    !obj.hasOwnProperty("message") ||
     regexMessage.test(obj.message) ||
     obj.uri === ""
   ) {
