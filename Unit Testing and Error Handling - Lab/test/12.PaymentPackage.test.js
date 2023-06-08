@@ -106,8 +106,65 @@ describe("Tests for PaymentPackage", () => {
       assert.equal(instance._VAT, 20, "4");
       assert.equal(instance._active, true, "5");
     });
+    it("throw new Error if the Name is a number", () => {
+      expect(() => new PaymentPackage(123, 213)).to.throw(
+        "Name must be a non-empty string"
+      );
+    });
+
+    it("throw new Error if the Name is a string array", () => {
+      expect(() => new PaymentPackage(["a", "b", "c"], 213)).to.throw(
+        "Name must be a non-empty string"
+      );
+    });
+
+    it("throw new Error if the Name is an empty string", () => {
+      expect(() => new PaymentPackage("", 213)).to.throw(
+        "Name must be a non-empty string"
+      );
+    });
+
+    it("should not throw error", () => {
+      expect(() => new PaymentPackage("abc", 213)).not.to.throw(
+        "Name must be a non-empty string"
+      );
+    });
   });
-  describe("Tests for the Value", () => {});
+
+  describe("Tests for the Value", () => {
+    it("set value to null", () => {
+      const instance = new PaymentPackage("Name", 100);
+
+      assert.doesNotThrow(() => {
+        instance.value = 0;
+      });
+    });
+
+    it("throw new Error if the Value is string", () => {
+      expect(() => new PaymentPackage("abc", "abc")).to.throw(
+        "Value must be a non-negative number"
+      );
+    });
+
+    it("throw new Error if the Value is array", () => {
+      expect(() => new PaymentPackage("abc", [1, 2, 3])).to.throw(
+        "Value must be a non-negative number"
+      );
+    });
+
+    it("throw new Error if the Value is negative number", () => {
+      expect(() => new PaymentPackage("abc", -123)).to.throw(
+        "Value must be a non-negative number"
+      );
+    });
+
+    it("should not throw error", () => {
+      expect(() => new PaymentPackage("abc", 213)).not.to.throw(
+        "Value must be a non-negative number"
+      );
+    });
+  });
+
   describe("Tests for the VAT", () => {});
   describe("Tests for the Active", () => {});
   describe("Tests for the toString method", () => {});
