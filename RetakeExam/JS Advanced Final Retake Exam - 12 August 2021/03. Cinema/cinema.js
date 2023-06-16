@@ -36,3 +36,5 @@ const cinema = {
     }
   },
 };
+// console.log(cinema.showMovies([{ a: 0 }, { b: 1 }, { c: 3 }]));
+module.exports = cinema;
