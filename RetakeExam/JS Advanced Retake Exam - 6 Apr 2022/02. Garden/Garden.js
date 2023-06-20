@@ -94,4 +94,4 @@ console.log(myGarden.ripenPlant("orange", 1));
 console.log(myGarden.harvestPlant("apple"));
 console.log(myGarden.harvestPlant("olive"));
 
-16/100 65/100 89/100    14/20
+// 16/100 65/100 89/100    14/20
