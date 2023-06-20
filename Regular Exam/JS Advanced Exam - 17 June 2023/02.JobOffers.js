@@ -51,7 +51,7 @@ class JobOffers {
       );
     }
 
-    return `Welcome aboard, our newest employee is ${candidateArgument[0]}."`;
+    return `Welcome aboard, our newest employee is ${candidateArgument[0]}.`;
   }
 
   salaryBonus(name) {}
